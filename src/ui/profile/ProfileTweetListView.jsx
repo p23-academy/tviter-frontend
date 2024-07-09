@@ -1,9 +1,11 @@
 import {getAllTweetsByUser} from "../../data/tweetRepo.js";
 import {useLoaderData} from "react-router-dom";
 import ProfileTweetListItemView from "./ProfileTweetListItemView.jsx";
+import {decodeToken} from "../../data/authRepo.js";
 
 export const profileTweetListLoader = async () => {
-  const tweetsResponse = await getAllTweetsByUser("Konj")
+  const decodedToken = decodeToken(localStorage.getItem("token"));
+  const tweetsResponse = await getAllTweetsByUser(decodedToken.id)
   const tweets = tweetsResponse.data
   return {tweets}
 }

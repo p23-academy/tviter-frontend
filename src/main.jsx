@@ -9,8 +9,8 @@ import UserTweetListView, {userTweetListLoader} from "./ui/users/UserTweetListVi
 import ProfileTweetListView, {profileTweetListLoader} from "./ui/profile/ProfileTweetListView.jsx";
 import EditTweetFormView, {editTweetFormAction, editTweetFormLoader} from "./ui/profile/EditTweetFormView.jsx";
 import AppLayout, {appLoader} from "./ui/app/AppLayout.jsx";
-import LoginView from "./ui/login/LoginView.jsx";
-import RegisterView from "./ui/register/RegisterView.jsx";
+import LoginView, {loginUserAction} from "./ui/login/LoginView.jsx";
+import RegisterView, {registerUserAction} from "./ui/register/RegisterView.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,10 +19,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
+    action: loginUserAction,
     element: <LoginView/>
   },
   {
     path: "/register",
+    action: registerUserAction,
     element: <RegisterView/>
   },
   {

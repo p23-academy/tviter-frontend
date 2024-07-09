@@ -1,4 +1,5 @@
 import axios from "axios";
+import {decodeToken} from "./authRepo.js";
 
 export const getAllTweets = async () => {
   console.log("Getting all tweets")
@@ -9,8 +10,10 @@ export const getAllTweets = async () => {
 
 export const postNewTweet = async (tweet) => {
   console.log("Posting new tweet")
+  const decodedToken = decodeToken(localStorage.getItem("token"))
   const tweetBody = {
-    author: "Konj",
+    author: decodedToken.username,
+    authorId: decodedToken.id,
     tweet: tweet,
     time: new Date(),
   }
