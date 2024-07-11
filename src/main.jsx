@@ -11,6 +11,7 @@ import EditTweetFormView, {editTweetFormAction, editTweetFormLoader} from "./ui/
 import AppLayout, {appLoader} from "./ui/app/AppLayout.jsx";
 import LoginView, {loginUserAction} from "./ui/login/LoginView.jsx";
 import RegisterView, {registerUserAction} from "./ui/register/RegisterView.jsx";
+import SearchListView, {searchListViewLoader} from "./ui/search/SearchListView.jsx";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
         path: "/app/users/:userId",
         element: <UserTweetListView/>,
         loader: userTweetListLoader,
+      },
+      {
+        path: "/app/search/:query",
+        element: <SearchListView/>,
+        loader: searchListViewLoader,
       },
     ]
   },

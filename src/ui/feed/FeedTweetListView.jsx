@@ -1,9 +1,9 @@
-import {getAllTweets} from "../../data/tweetRepo.js";
+import {getFeedTweets} from "../../data/tweetRepo.js";
 import {useLoaderData} from "react-router-dom";
 import FeedTweetListItemView from "./FeedTweetListItemView.jsx";
 
 export const feedTweetListLoader = async () => {
-  const tweetsResponse = await getAllTweets()
+  const tweetsResponse = await getFeedTweets()
   const tweets = tweetsResponse.data
   return {tweets}
 }

@@ -1,6 +1,14 @@
 import axios from "axios";
 import {decodeToken} from "./authRepo.js";
 
+export const getFeedTweets = async () => {
+  console.log("Getting feed")
+  const decodedToken = decodeToken(localStorage.getItem("token"))
+  const response = await axios.get(`http://localhost:3000/api/feed/${decodedToken.id}`)
+  console.log(response)
+  return response
+}
+
 export const getAllTweets = async () => {
   console.log("Getting all tweets")
   const response = await axios.get("http://localhost:3000/api/tweets")
